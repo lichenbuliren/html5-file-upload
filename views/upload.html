@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>HTML5 File upload</title>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML5 File Upload</h1>
+        <form action="javascript:;">
+            <div class="row-control">
+                <label class="label">上传照片</label>
+                <div class="file-control">
+                    <div class="file-choose">
+                        <input class="input-file" type="file" name="uploadify1" accept="image/*;capture=camera">
+                        <img class="thumb" src="">
+                        <span class="icon-delete">+</span>
+                    </div>
+                </div>
+                <div class="file-control">
+                    <div class="file-choose">
+                        <input class="input-file" type="file" name="uploadify2" accept="image/*;capture=camera">
+                        <img class="thumb" src="">
+                        <span class="icon-delete">+</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-control">
+                <a href="javascript:;" class="btn btn-submit disabled">开始上传</a>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 80%;
+    min-width: 800px;
+    margin: 80px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.container .row-control{
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+.container .row-control .btn{
+    width: 55%;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3db1fa;
+    border-radius: 20px;
+    line-height: 1.6;
+    text-decoration: none;
+    padding: 4px 20px;
+    margin: 20px 0;
+    display: block;
+    text-align: center;
+}
+
+.container .row-control .btn.disabled{
+    background-color: #eee;
+    color: #aaa;
+    cursor: default;
+}
+
+.container .row-control .label{
+    font-size: 18px;
+    line-height: 1.6;
+    padding-bottom: 4px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.container .row-control .file-control{
+    position: relative;
+    float: left;
+    width: 26%;
+    padding-top: 26%;
+    margin-right: 22px;
+    cursor: pointer;
+}
+
+.row-control .file-control .file-choose{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border: 2px dashed #cccccc;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.row-control .file-control .file-choose.file-choose-loaded {
+    border: 0;
+}
+
+.row-control .file-control .file-choose.file-choose-loaded .icon-delete,
+.row-control .file-control .file-choose.file-choose-loaded .thumb{
+    display: block;
+}
+
+.row-control .file-control .file-choose:before{
+    position: absolute;
+    content: '+';
+    font-size: 36px;
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    transform: translate(-50%,-50%);
+}
+
+.file-control .file-choose .icon-delete{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ff0c0c;
+    font-size: 18px;
+    color: #fff;
+    transform: translate(50%,-50%) rotate(45deg);
+    transform-origin: center;
+    display: none;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.file-control .file-choose .input-file{
+    vertical-align: middle;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.file-control .file-choose .thumb{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 0;
+    z-index: 3;
+}
+.file-control .file-choose .thumb.show{
+    display: block;
+}
