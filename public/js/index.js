@@ -57,23 +57,36 @@ $(function() {
     });
 
     $submit.on('click',function(){
+        // 方式1：用 formData 的形式提交
+        var formData = new FormData();
+        formData.append('uploadify1',$('.input-file')[0].files[0]);
+        formData.append('uploadify2',$('.input-file')[1].files[0]);
+
+        // 方式二：表单序列化
+        // var formData = new FormData($form[0]);
+
         if($(this).hasClass('disabled')){
             return false;
         }
 
         if(ajaxStatus) return;
         ajaxStatus = true;
+
+
         // 表单提交
         $.ajax({
             url: '/upload',
             type: 'POST',
             dataType: 'json',
+            data: formData,
             // 这两项必填，作为文件上传的时候
             contentType: false,
-            processData: false,
-            data: $form.serialize(),
+            processData: false
         }).done(function(resp) {
-            console.log("success", resp);
+            if(resp.status == 200){
+                alert('上传成功');
+                console.log("success", resp);
+            }
         }).fail(function() {
             console.log("error");
         }).always(function() {
