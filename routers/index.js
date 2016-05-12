@@ -13,28 +13,27 @@ module.exports = function(app){
             title: 'HTML5 File Upload'
         });
     }).post('/upload', function *(next){
+        var _this = this;
         var parts = parse(this);
         var part;
 
         var count = 0;
-
+        console.log('start',+new Date());
         while(part = yield parts){
             var stream = fs.createWriteStream(path.resolve(__dirname,'../public/images') + '/' + part.filename);
-            part.pipe(stream);
+            part.pipe(stream,{end: false});
 
-            // part.on('end',function(){
-            //     count++;
-            // });
-            console.log('uploading %s -> %s', part.filename, stream.path);
+            part.on('end',function(){
+                count++;
+                if(count == parts.length){
+                    console.log('end',+new Date());
+                    _this.body = {
+                        "status" : 200
+                    }
+                }
+                console.log('uploading %s -> %s', part.filename, stream.path);
+            });
         }
-
-        // yield function *(next){
-        //     if(count == parts.length){
-        //         this.body = {
-        //             "status": 200
-        //         }
-        //     }
-        // }
     });
     app.use(router.routes());
 }
