@@ -1,4 +1,10 @@
-## html5-file-upload	
+## HTML5-File-Upload-Ajax
+一个 HTML5 文件异步上传操作的Demo，后台使用的是 nodejs。
 
-#### 使用 HTML5 File API 实现图片的预览与上传操作 
+### 如何跑这个Demo
+
+下载源码到本地，本例子使用的是 nodemon 来做服务器端的热重启，所以要全局安装下该包；其它的就在本地执行 npm install 一下，安装基本的依赖包。由于后台使用的 koa 框架，对 node 版本要求较高，如果出现不能跑的情况下，请先升级 node 到最新的稳定版本。
+
+
+
 
